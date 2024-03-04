@@ -1,0 +1,29 @@
+spring:
+  profiles:
+    active: dev
+
+server:
+  port: 8080
+---
+spring:
+  profiles: dev
+  datasource:
+    url: jdbc:postgresql://localhost:5432/booking_db
+    username: booking-service
+    password: ${DB_PASSWORD}
+
+---
+spring:
+  profiles: test
+  datasource:
+    url: jdbc:postgresql://localhost:5432/booking_db_test
+    username: booking-service
+    password: ${DB_PASSWORD}
+
+---
+spring:
+  profiles: production
+  datasource:
+    url: jdbc:mysql://booking-service:5432/booking_db_prod
+    username: booking-service
+    password: ${DB_PASSWORD}
